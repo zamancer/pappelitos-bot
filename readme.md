@@ -1,60 +1,23 @@
-# Installation
+# PAPPelitos
 
-- `git clone https://github.com/oceanroleplay/discord.ts-example`
-- `cd discord.ts-example`
-- `npm install`
-- `npm run build`
-- `set BOT_TOKEN=<your bot token>`
+This is a discord-based game to play casually with friends.
 
-  if you don't have token yet than create one at [discord developer portal](https://discord.com/developers/)
+# Getting Started
 
-- `npm run start`
+- Clone this repository using `git clone` or `gh`. 
+- Run `cd pappelitos`
+- Run `yarn install`
+- Run `yarn build`
+- Add your TOKEN in a `.env` file like so `BOT_TOKEN=<your bot token>`
 
-you are done, you will see your bot up and running. For detailed installation guide, please [see this](https://oceanroleplay.github.io/discord.ts/docs/installation)
+  If you don't have token yet than create one at [discord developer portal](https://discord.com/developers/)
 
-# Use CommonJS
+- Run `yarn start`
 
-This repo is targed to use ECMAScript modules by default. Follow these steps to use CommonJS.
+## Reference
 
-## Update package.json
+This repo is based off of the great [discord.ts example](https://github.com/oceanroleplay/discord.ts-example).
 
-```json
-{
-  // ...
-  "type": "commonjs",
-  // ...
-  "scripts": {
-    "build": "tsc",
-    "dev": "ts-node src/client.ts",
-    "start": "nodemon --exec ts-node src/client.ts",
-    "serve": "node build/client.js"
-  }
-  // ...
-}
-```
+# Contribution and Bugs
 
-## Update tsconfig.json
-
-```json
-{
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "CommonJS"
-    // ...
-  }
-}
-```
-
-## Update client.ts
-
-```ts
-async function run() {
-  // with cjs
-  await importx(__dirname + "/{events,commands}/**/*.{ts,js}");
-  // with ems
-  // await importx(dirname(import.meta.url) + "/{events,commands}/**/*.{ts,js}");
-  client.login(process.env.BOT_TOKEN ?? ""); // provide your bot token
-}
-```
-
-# Thank you
+Please file any bug or feature request through this repository using the Issues tab.
